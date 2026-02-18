@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mappa Impero Ottomano</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        .mermaid {
+            width: 90%;
+            height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mermaid">
+            %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#E3F2FD', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#fff', 'fontFamily': 'arial'}}}%%
+            graph TD
+                %% NODO CENTRALE
+                ROOT(("L'IMPERO OTTOMANO<br>(XV-XVI Secolo)"))
+                style ROOT fill:#1565C0,stroke:#000,stroke-width:2px,color:#fff
+
+                %% RAMO 1
+                ROOT --> EXP["1. ESPANSIONE E CONQUISTE"]
+                style EXP fill:#BBDEFB,stroke:#1565C0
+
+                EXP --> MAO["Maometto II 'Il Conquistatore'"]
+                MAO --> COST["1453: Presa di Costantinopoli<br>(Fine Medioevo / Inizio Età Moderna)"]
+                MAO --> OTRA["1480: Sbarco a Otranto<br>(Progetto fallito su Roma)"]
+                MAO --> PACE["1479: Pace di Istanbul con Venezia"]
+
+                EXP --> SEL["Selim I 'Il Terribile'"]
+                SEL --> MEO["Conquista Medio Oriente (1517)<br>(Siria, Egitto, Palestina)"]
+                SEL --> CAL["Titolo di Califfo<br>(Guida islam sunnita)"]
+
+                EXP --> SOL["Solimano 'Il Magnifico'"]
+                SOL --> MOH["1526: Battaglia di Mohács<br>(Vittoria vs Ungheria)"]
+                SOL --> VIE["1529: Assedio di Vienna<br>(Stop espansione in Europa)"]
+                SOL --> LEG["Il Legislatore<br>(Riforme fiscali e leggi)"]
+
+                %% RAMO 2
+                ROOT --> STAT["2. ORGANIZZAZIONE STATALE"]
+                style STAT fill:#C8E6C9,stroke:#2E7D32
+
+                STAT --> SULT["Sultano<br>(Potere assoluto)"]
+                STAT --> DIVAN["Divan (Consiglio)<br>Guidato dal Gran Visir"]
+                STAT --> HAREM["Harem<br>(Potere politico delle donne)"]
+                
+                STAT --> MIL["Esercito"]
+                MIL --> GIAN["Giannizzeri<br>(Corpo d'élite convertito)"]
+                MIL --> DEV["Devshirme<br>(Reclutamento forzato cristiani)"]
+                MIL --> TIM["Sistema Timar<br>(Terre in cambio di servizio)"]
+
+                %% RAMO 3
+                ROOT --> SOC["3. SOCIETÀ E CULTURA"]
+                style SOC fill:#FFF9C4,stroke:#FBC02D
+
+                SOC --> IST["Istanbul (Capitale)"]
+                IST --> URB["Rinnovamento<br>(Topkapi, S. Sofia, Bazar)"]
+                IST --> POP["Metropoli cosmopolita<br>(700k abitanti)"]
+
+                SOC --> TOLL["Tolleranza Controllata"]
+                TOLL --> GENTE["'Gente del Libro'<br>(Cristiani ed Ebrei)"]
+                TOLL --> TASSE["Tasse speciali<br>ma libertà di culto"]
+
+                %% RAMO 4
+                ROOT --> OCC["4. RAPPORTO CON OCCIDENTE"]
+                style OCC fill:#E1BEE7,stroke:#7B1FA2
+
+                OCC --> SCO["Scontro"]
+                SCO --> PIR["Pirateria barbaresca"]
+                
+                OCC --> INC["Incontro"]
+                INC --> COMM["Commerci (Spezie/Tessuti)"]
+                INC --> ARTE["Arte e Scienza<br>(Scambio reciproco)"]
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            securityLevel: 'loose',
+            flowchart: { 
+                useMaxWidth: true, 
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
