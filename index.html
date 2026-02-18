@@ -3,104 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mappa Impero Ottomano</title>
+    <title>Mappa Ottomana Totem</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
-        .container {
+            background-color: #2b2b2b; /* Sfondo scuro professionale */
+            font-family: 'Segoe UI', Arial, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
         }
+
+        .container {
+            width: 100%;
+            max-width: 500px; /* Larghezza contenuta per forzare la verticalità */
+            background-color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        /* Forza il grafico a stare dritto */
         .mermaid {
-            width: 90%;
-            height: 90%;
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="mermaid">
-            %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#E3F2FD', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#fff', 'fontFamily': 'arial'}}}%%
+            %%{init: {
+                'theme': 'base', 
+                'themeVariables': { 
+                    'primaryColor': '#E3F2FD', 
+                    'primaryTextColor': '#000',
+                    'primaryBorderColor': '#1565C0',
+                    'lineColor': '#000000',
+                    'fontSize': '20px'
+                },
+                'flowchart': { 
+                    'nodeSpacing': 50, 
+                    'rankSpacing': 60,
+                    'curve': 'linear'
+                }
+            }}%%
             graph TD
-                %% NODO CENTRALE
-                ROOT(("L'IMPERO OTTOMANO<br>(XV-XVI Secolo)"))
-                style ROOT fill:#1565C0,stroke:#000,stroke-width:2px,color:#fff
-
-                %% RAMO 1
-                ROOT --> EXP["1. ESPANSIONE E CONQUISTE"]
-                style EXP fill:#BBDEFB,stroke:#1565C0
-
-                EXP --> MAO["Maometto II 'Il Conquistatore'"]
-                MAO --> COST["1453: Presa di Costantinopoli<br>(Fine Medioevo / Inizio Età Moderna)"]
-                MAO --> OTRA["1480: Sbarco a Otranto<br>(Progetto fallito su Roma)"]
-                MAO --> PACE["1479: Pace di Istanbul con Venezia"]
-
-                EXP --> SEL["Selim I 'Il Terribile'"]
-                SEL --> MEO["Conquista Medio Oriente (1517)<br>(Siria, Egitto, Palestina)"]
-                SEL --> CAL["Titolo di Califfo<br>(Guida islam sunnita)"]
-
-                EXP --> SOL["Solimano 'Il Magnifico'"]
-                SOL --> MOH["1526: Battaglia di Mohács<br>(Vittoria vs Ungheria)"]
-                SOL --> VIE["1529: Assedio di Vienna<br>(Stop espansione in Europa)"]
-                SOL --> LEG["Il Legislatore<br>(Riforme fiscali e leggi)"]
-
-                %% RAMO 2
-                ROOT --> STAT["2. ORGANIZZAZIONE STATALE"]
-                style STAT fill:#C8E6C9,stroke:#2E7D32
-
-                STAT --> SULT["Sultano<br>(Potere assoluto)"]
-                STAT --> DIVAN["Divan (Consiglio)<br>Guidato dal Gran Visir"]
-                STAT --> HAREM["Harem<br>(Potere politico delle donne)"]
                 
-                STAT --> MIL["Esercito"]
-                MIL --> GIAN["Giannizzeri<br>(Corpo d'élite convertito)"]
-                MIL --> DEV["Devshirme<br>(Reclutamento forzato cristiani)"]
-                MIL --> TIM["Sistema Timar<br>(Terre in cambio di servizio)"]
+                %% -- TITOLO --
+                START(("<br>L'IMPERO OTTOMANO<br>(XV-XVI Sec.)<br><br>"))
+                style START fill:#1565C0,stroke:#000,stroke-width:3px,color:#fff,font-weight:bold
 
-                %% RAMO 3
-                ROOT --> SOC["3. SOCIETÀ E CULTURA"]
-                style SOC fill:#FFF9C4,stroke:#FBC02D
-
-                SOC --> IST["Istanbul (Capitale)"]
-                IST --> URB["Rinnovamento<br>(Topkapi, S. Sofia, Bazar)"]
-                IST --> POP["Metropoli cosmopolita<br>(700k abitanti)"]
-
-                SOC --> TOLL["Tolleranza Controllata"]
-                TOLL --> GENTE["'Gente del Libro'<br>(Cristiani ed Ebrei)"]
-                TOLL --> TASSE["Tasse speciali<br>ma libertà di culto"]
-
-                %% RAMO 4
-                ROOT --> OCC["4. RAPPORTO CON OCCIDENTE"]
-                style OCC fill:#E1BEE7,stroke:#7B1FA2
-
-                OCC --> SCO["Scontro"]
-                SCO --> PIR["Pirateria barbaresca"]
+                %% SEQUENZA LINEARE (A -> B -> C) PER EVITARE DIAGONALI
                 
-                OCC --> INC["Incontro"]
-                INC --> COMM["Commerci (Spezie/Tessuti)"]
-                INC --> ARTE["Arte e Scienza<br>(Scambio reciproco)"]
+                START --> MAO_BOX
+                
+                %% SEZIONE 1: MAOMETTO
+                MAO_BOX["1. MAOMETTO II<br>'Il Conquistatore'"]
+                style MAO_BOX fill:#BBDEFB,stroke:#1565C0,stroke-width:2px
+                
+                MAO_BOX --> COST["1453: PRESA DI<br>COSTANTINOPOLI"]
+                style COST fill:#ffcdd2,stroke:#d32f2f
+                
+                COST --> IMP["Svolta Storica:<br>Fine Medioevo -> Età Moderna"]
+                IMP --> CANN["Fattore Chiave:<br>Super Cannoni & Castello"]
+                
+                CANN --> OTR["1480: Sbarco a Otranto"]
+                OTR --> ROMA["Obiettivo (Fallito):<br>Marciare su Roma"]
+
+                ROMA --> SEL_BOX
+
+                %% SEZIONE 2: SELIM
+                SEL_BOX["2. SELIM I<br>'Il Terribile'"]
+                style SEL_BOX fill:#BBDEFB,stroke:#1565C0,stroke-width:2px
+                
+                SEL_BOX --> EST["Conquista Oriente (1517)<br>Egitto, Siria, Palestina"]
+                EST --> CAL["Diventa CALIFFO<br>(Capo spirituale Islam)"]
+                CAL --> SPEZ["Controllo Totale<br>Vie delle Spezie"]
+
+                SPEZ --> SOL_BOX
+
+                %% SEZIONE 3: SOLIMANO
+                SOL_BOX["3. SOLIMANO<br>'Il Magnifico'"]
+                style SOL_BOX fill:#BBDEFB,stroke:#1565C0,stroke-width:2px
+                
+                SOL_BOX --> MOH["1526: Battaglia di Mohács<br>(Conquista Ungheria)"]
+                MOH --> VIE["1529: ASSEDIO DI VIENNA<br>(L'Europa trema)"]
+                style VIE fill:#ffcdd2,stroke:#d32f2f
+                
+                VIE --> LEG["Riforme Interne:<br>'Il Legislatore' (Kanun)"]
+
+                LEG --> STAT_BOX
+
+                %% SEZIONE 4: STATO
+                STAT_BOX["4. STRUTTURA STATALE"]
+                style STAT_BOX fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
+                
+                STAT_BOX --> SULT["SULTANO<br>(Potere Assoluto)"]
+                SULT --> DIV["DIVAN (Consiglio)<br>Gran Visir (Primo Ministro)"]
+                DIV --> HAR["HAREM<br>(Centro Potere Politico)"]
+                HAR --> DON["'Sultanato delle Donne'<br>(Madri e Mogli influenti)"]
+
+                DON --> ESER_BOX
+
+                %% SEZIONE 5: ESERCITO
+                ESER_BOX["5. ESERCITO"]
+                style ESER_BOX fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
+                
+                ESER_BOX --> GIAN["GIANNIZZERI<br>(Fanteria d'Elite)"]
+                GIAN --> DEV["DEVSHIRME<br>(Reclutamento Bambini Cristiani)"]
+                DEV --> TIM["TIMAR<br>(Terre in cambio di servizio)"]
+
+                TIM --> SOC_BOX
+
+                %% SEZIONE 6: SOCIETA
+                SOC_BOX["6. SOCIETÀ & CULTURA"]
+                style SOC_BOX fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px
+                
+                SOC_BOX --> IST["ISTANBUL<br>(Rinnovata e Islamica)"]
+                IST --> POP["Metropoli Cosmopolita<br>(700.000 abitanti)"]
+                POP --> TOLL["TOLLERANZA RELIGIOSA"]
+                TOLL --> GENT["'Gente del Libro'<br>(Cristiani ed Ebrei)"]
+                GENT --> TASS["Pagano Tasse (Jizya)<br>ma conservano il culto"]
+
+                TASS --> OCC_BOX
+
+                %% SEZIONE 7: OCCIDENTE
+                OCC_BOX["7. RAPPORTO CON L'OCCIDENTE"]
+                style OCC_BOX fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px
+                
+                OCC_BOX --> WAR["SCONTRO:<br>Pirateria & Guerre"]
+                WAR --> PEACE["INCONTRO:<br>Commerci & Diplomazia"]
+                PEACE --> VEN["Esempio:<br>Pace con Venezia (1479)"]
+                VEN --> ART["Scambio Culturale:<br>Arte (Bellini), Mappe, Orologi"]
+
         </div>
     </div>
 
     <script>
         mermaid.initialize({ 
             startOnLoad: true,
-            securityLevel: 'loose',
-            flowchart: { 
-                useMaxWidth: true, 
-                htmlLabels: true,
-                curve: 'basis'
-            }
+            securityLevel: 'loose'
         });
     </script>
 </body>
