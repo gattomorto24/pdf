@@ -2,152 +2,176 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mappa Ottomana Totem</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    <title>Impero Ottomano - Analisi Strategica Avanzata</title>
     <style>
+        :root {
+            /* Palette CMY Saturata - No Nero */
+            --printer-blue: #003366;   /* Testo Primario */
+            --printer-magenta: #660044; /* Testo Secondario */
+            --printer-yellow: #CC9900;  /* Accenti */
+            --accent-cyan: #00E5FF;
+            --accent-magenta: #FF00FF;
+            --surface: #FFFFFF;
+        }
+
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #2b2b2b; /* Sfondo scuro professionale */
-            font-family: 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
+            background-color: #F0F2F5;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center; gap: 50px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 500px; /* Larghezza contenuta per forzare la verticalità */
-            background-color: #ffffff;
-            min-height: 100vh;
-            padding: 40px 20px;
-            box-sizing: border-box;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        /* Pagina A4 Orizzontale */
+        .page {
+            width: 1400px; height: 900px;
+            background: var(--surface);
+            padding: 60px; box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 350px 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Forza il grafico a stare dritto */
-        .mermaid {
-            display: flex;
-            justify-content: center;
+        /* Sidebar di navigazione concettuale */
+        .sidebar {
+            grid-row: 1 / span 2;
+            background: linear-gradient(180deg, var(--md-cyan-cont, #E0F7FA) 0%, #FFFFFF 100%);
+            border-right: 4px solid var(--accent-cyan);
+            padding: 20px;
+            border-radius: 20px;
         }
+
+        .main-title {
+            grid-column: 2 / span 2;
+            border-bottom: 8px solid var(--accent-magenta);
+            padding-bottom: 10px;
+        }
+
+        h1 { font-size: 52px; font-weight: 900; color: var(--printer-blue); margin: 0; letter-spacing: -2px; }
+        h2 { font-size: 26px; font-weight: 800; color: var(--printer-magenta); margin-top: 30px; text-transform: uppercase; }
+        
+        .content-area {
+            font-size: 16px; line-height: 1.8; color: var(--printer-blue); text-align: justify;
+        }
+
+        .highlight-box {
+            background: rgba(255, 0, 255, 0.05);
+            border-left: 6px solid var(--accent-magenta);
+            padding: 20px; margin: 20px 0;
+            color: var(--printer-magenta);
+            font-weight: 600;
+        }
+
+        .data-point {
+            display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px;
+        }
+
+        .icon-wrap {
+            background: var(--accent-cyan);
+            border-radius: 12px;
+            padding: 8px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        svg { width: 24px; height: 24px; fill: var(--printer-blue); }
+
+        b { font-weight: 900; }
+        .page-num { position: absolute; bottom: 40px; right: 40px; font-weight: 900; font-size: 24px; color: var(--accent-cyan); }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="mermaid">
-            %%{init: {
-                'theme': 'base', 
-                'themeVariables': { 
-                    'primaryColor': '#E3F2FD', 
-                    'primaryTextColor': '#000',
-                    'primaryBorderColor': '#1565C0',
-                    'lineColor': '#000000',
-                    'fontSize': '20px'
-                },
-                'flowchart': { 
-                    'nodeSpacing': 50, 
-                    'rankSpacing': 60,
-                    'curve': 'linear'
-                }
-            }}%%
-            graph TD
-                
-                %% -- TITOLO --
-                START(("<br>L'IMPERO OTTOMANO<br>(XV-XVI Sec.)<br><br>"))
-                style START fill:#1565C0,stroke:#000,stroke-width:3px,color:#fff,font-weight:bold
-
-                %% SEQUENZA LINEARE (A -> B -> C) PER EVITARE DIAGONALI
-                
-                START --> MAO_BOX
-                
-                %% SEZIONE 1: MAOMETTO
-                MAO_BOX["1. MAOMETTO II<br>'Il Conquistatore'"]
-                style MAO_BOX fill:#BBDEFB,stroke:#1565C0,stroke-width:2px
-                
-                MAO_BOX --> COST["1453: PRESA DI<br>COSTANTINOPOLI"]
-                style COST fill:#ffcdd2,stroke:#d32f2f
-                
-                COST --> IMP["Svolta Storica:<br>Fine Medioevo -> Età Moderna"]
-                IMP --> CANN["Fattore Chiave:<br>Super Cannoni & Castello"]
-                
-                CANN --> OTR["1480: Sbarco a Otranto"]
-                OTR --> ROMA["Obiettivo (Fallito):<br>Marciare su Roma"]
-
-                ROMA --> SEL_BOX
-
-                %% SEZIONE 2: SELIM
-                SEL_BOX["2. SELIM I<br>'Il Terribile'"]
-                style SEL_BOX fill:#BBDEFB,stroke:#1565C0,stroke-width:2px
-                
-                SEL_BOX --> EST["Conquista Oriente (1517)<br>Egitto, Siria, Palestina"]
-                EST --> CAL["Diventa CALIFFO<br>(Capo spirituale Islam)"]
-                CAL --> SPEZ["Controllo Totale<br>Vie delle Spezie"]
-
-                SPEZ --> SOL_BOX
-
-                %% SEZIONE 3: SOLIMANO
-                SOL_BOX["3. SOLIMANO<br>'Il Magnifico'"]
-                style SOL_BOX fill:#BBDEFB,stroke:#1565C0,stroke-width:2px
-                
-                SOL_BOX --> MOH["1526: Battaglia di Mohács<br>(Conquista Ungheria)"]
-                MOH --> VIE["1529: ASSEDIO DI VIENNA<br>(L'Europa trema)"]
-                style VIE fill:#ffcdd2,stroke:#d32f2f
-                
-                VIE --> LEG["Riforme Interne:<br>'Il Legislatore' (Kanun)"]
-
-                LEG --> STAT_BOX
-
-                %% SEZIONE 4: STATO
-                STAT_BOX["4. STRUTTURA STATALE"]
-                style STAT_BOX fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
-                
-                STAT_BOX --> SULT["SULTANO<br>(Potere Assoluto)"]
-                SULT --> DIV["DIVAN (Consiglio)<br>Gran Visir (Primo Ministro)"]
-                DIV --> HAR["HAREM<br>(Centro Potere Politico)"]
-                HAR --> DON["'Sultanato delle Donne'<br>(Madri e Mogli influenti)"]
-
-                DON --> ESER_BOX
-
-                %% SEZIONE 5: ESERCITO
-                ESER_BOX["5. ESERCITO"]
-                style ESER_BOX fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
-                
-                ESER_BOX --> GIAN["GIANNIZZERI<br>(Fanteria d'Elite)"]
-                GIAN --> DEV["DEVSHIRME<br>(Reclutamento Bambini Cristiani)"]
-                DEV --> TIM["TIMAR<br>(Terre in cambio di servizio)"]
-
-                TIM --> SOC_BOX
-
-                %% SEZIONE 6: SOCIETA
-                SOC_BOX["6. SOCIETÀ & CULTURA"]
-                style SOC_BOX fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px
-                
-                SOC_BOX --> IST["ISTANBUL<br>(Rinnovata e Islamica)"]
-                IST --> POP["Metropoli Cosmopolita<br>(700.000 abitanti)"]
-                POP --> TOLL["TOLLERANZA RELIGIOSA"]
-                TOLL --> GENT["'Gente del Libro'<br>(Cristiani ed Ebrei)"]
-                GENT --> TASS["Pagano Tasse (Jizya)<br>ma conservano il culto"]
-
-                TASS --> OCC_BOX
-
-                %% SEZIONE 7: OCCIDENTE
-                OCC_BOX["7. RAPPORTO CON L'OCCIDENTE"]
-                style OCC_BOX fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px
-                
-                OCC_BOX --> WAR["SCONTRO:<br>Pirateria & Guerre"]
-                WAR --> PEACE["INCONTRO:<br>Commerci & Diplomazia"]
-                PEACE --> VEN["Esempio:<br>Pace con Venezia (1479)"]
-                VEN --> ART["Scambio Culturale:<br>Arte (Bellini), Mappe, Orologi"]
-
+    <div class="page">
+        <div class="sidebar">
+            <h2 style="margin-top:0">Timeline</h2>
+            <div class="data-point"><b>1453</b><span>Caduta di Bisanzio: la fine di un'era.</span></div>
+            <div class="data-point"><b>1480</b><span>Otranto: l'assedio all'Italia.</span></div>
+            <div class="data-point"><b>1517</b><span>Selim I: l'unione del Califfato.</span></div>
+            <div class="data-point"><b>1529</b><span>Vienna: il culmine europeo.</span></div>
+            
+            <h2 style="margin-top:40px">Sultani</h2>
+            <p><b>Maometto II:</b> Il Fondatore<br>
+            <b>Selim I:</b> L'Egemone<br>
+            <b>Solimano:</b> Il Legislatore</p>
         </div>
+
+        <div class="main-title">
+            <h1>SULTANATO: L'ARCHITETTURA DELL'EGEMONIA</h1>
+        </div>
+
+        <div class="content-area">
+            <h2>L'Eredità Imperiale di Maometto II</h2>
+            <p>L'ascesa di Maometto II non rappresenta una semplice espansione territoriale, ma la volontà conscia di reclamare l'eredità universale di Roma. Attraverso il titolo di <b>Kayser-i Rum</b>, il Sultano operò una sintesi politica tra la tradizione turco-islamica e la maestosità imperiale bizantina. La presa di <b>Costantinopoli (1453)</b> fu resa possibile da una superiorità tecnica schiacciante: l'artiglieria pesante delle bombarde in bronzo e la logistica navale via terra. </p>
+            
+            <div class="highlight-box">
+                Il progetto italiano di Maometto II: lo sbarco a Otranto nel 1480 non fu un'incursione isolata, ma il preludio a una marcia su Roma, fermata esclusivamente dal decesso improvviso del sovrano.
+            </div>
+
+            <p>Sotto <b>Selim I</b>, l'impero subì una mutazione spirituale. Con la conquista di Egitto e Siria, il controllo dei luoghi santi passò nelle mani ottomane, trasformando il Sultano in <b>Califfo</b>. Questo garantì una legittimazione religiosa assoluta e il dominio monopolistico sulle rotte carovaniere delle spezie.</p>
+        </div>
+
+        <div class="content-area">
+            <h2>L'Apogeo di Solimano il Magnifico</h2>
+            <p>Solimano I portò l'impero al suo zenit multidimensionale. In Europa, la vittoria di <b>Mohács (1526)</b> annientò il regno d'Ungheria, portando i Giannizzeri ad assediare <b>Vienna nel 1529</b>. Questa pressione costante costrinse le potenze cristiane a una ridefinizione della propria difesa.</p>
+            
+            <p>Sul piano interno, Solimano fu il grande <b>Legislatore (Kanuni)</b>. La sua riforma del diritto civile e della tassazione proporzionale permise di gestire un mosaico di popoli eterogenei, garantendo stabilità economica e una macchina burocratica che non aveva eguali nelle corti europee contemporanee.</p>
+
+            <div class="data-point" style="margin-top:30px">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/></svg></div>
+                <span><b>Realpolitik Veneziana:</b> La Pace del 1479 dimostra come gli interessi commerciali della Serenissima prevalessero spesso sul conflitto religioso.</span>
+            </div>
+        </div>
+        <div class="page-num">01</div>
     </div>
 
-    <script>
-        mermaid.initialize({ 
-            startOnLoad: true,
-            securityLevel: 'loose'
-        });
-    </script>
+    
+
+    <div class="page">
+        <div class="sidebar" style="border-color: var(--accent-magenta); background: linear-gradient(180deg, var(--md-mag-cont, #FCE4EC) 0%, #FFFFFF 100%);">
+            <h2 style="margin-top:0; color: var(--printer-magenta);">Istituzioni</h2>
+            <div class="data-point"><b>Divan</b><span>Il centro esecutivo.</span></div>
+            <div class="data-point"><b>Harem</b><span>Il potere ombra.</span></div>
+            <div class="data-point"><b>Millet</b><span>Autonomia religiosa.</span></div>
+            
+            <h2 style="margin-top:40px; color: var(--printer-magenta);">Elite</h2>
+            <p><b>Giannizzeri:</b> Fanteria scelta<br>
+            <b>Sipahi:</b> Cavalieri Timar<br>
+            <b>Gran Visir:</b> Primo Ministro</p>
+        </div>
+
+        <div class="main-title" style="border-color: var(--accent-cyan);">
+            <h1 style="color: var(--printer-magenta);">L'ORGANISMO IMPERIALE: STATO E SOCIETÀ</h1>
+        </div>
+
+        <div class="content-area">
+            <h2 style="color: var(--printer-magenta);">L'Efficienza della Meritocrazia: Topkapi</h2>
+            <p>A differenza delle aristocrazie europee legate al sangue, l'Impero Ottomano si fondava su una <b>meritocrazia centralizzata</b>. Il <b>Palazzo Topkapi</b> ospitava il <b>Divan</b>, il consiglio dove il <b>Gran Visir</b> esercitava un'autorità delegata immensa. </p>
+            
+            <div class="highlight-box" style="border-color: var(--accent-cyan); color: var(--printer-blue);">
+                Il "Sultanato delle Donne": L'Harem non era un luogo di segregazione passiva, ma un epicentro politico dove la Valide Sultan (madre) e le mogli influenzavano nomine, diplomazia e successioni.
+            </div>
+
+            <p>La forza militare era garantita dai <b>Giannizzeri</b>, reclutati tramite il sistema del <b>Devshirme</b>: giovani cristiani educati per diventare l'ossatura della burocrazia o soldati scelti. Il sistema del <b>Timar</b>, d'altra parte, assicurava che la terra rimanesse sotto controllo statale, venendo concessa in cambio di servizio militare attivo.</p>
+        </div>
+
+        <div class="content-area">
+            <h2 style="color: var(--printer-magenta);">Cosmopolitismo e Sistema dei Millet</h2>
+            <p>Istanbul, con oltre 700.000 abitanti, era la metropoli più vasta d'Europa e un laboratorio di convivenza. Il <b>Sistema dei Millet</b> permetteva a ebrei e cristiani di mantenere tribunali e leggi proprie sotto la guida dei propri capi religiosi (come il patriarca <b>Gennadios II</b>), a fronte del pagamento della <b>Jizya</b>.</p>
+
+            <p>Questa tolleranza pragmatica favorì lo sviluppo di una cultura ibrida. Gli ottomani importavano <b>orologi, lenti e cartografia</b> dall'Occidente, mentre esportavano modelli architettonici ispirati a <b>Santa Sofia</b> e conoscenze botaniche e mediche raffinate. Molti "rinnegati" cristiani scalarono le vette dello Stato, attratti da un sistema che premiava il talento individuale.</p>
+
+            <div class="data-point" style="margin-top:30px">
+                <div class="icon-wrap" style="background: var(--accent-magenta);"><svg viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg></div>
+                <span style="color: var(--printer-magenta);"><b>Simbiosi Culturale:</b> Il pittore veneziano Gentile Bellini alla corte di Maometto II testimonia un clima di fascinazione reciproca tra i due mondi.</span>
+            </div>
+        </div>
+        <div class="page-num" style="color: var(--accent-magenta);">02</div>
+    </div>
+
+    
+
 </body>
 </html>
