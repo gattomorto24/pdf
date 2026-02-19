@@ -6,122 +6,118 @@
     <style>
         :root {
             /* Palette CMY Saturata - No Nero */
-            --printer-blue: #003366;   /* Testo Primario */
-            --printer-magenta: #660044; /* Testo Secondario */
-            --printer-yellow: #CC9900;  /* Accenti */
-            --accent-cyan: #00E5FF;
-            --accent-magenta: #FF00FF;
+            --p-blue: #003366;   /* Testo Primario (Ciano + Magenta) */
+            --p-magenta: #660044; /* Testo Secondario (Magenta + Giallo) */
+            --p-yellow: #CC9900;  /* Accenti */
+            --acc-cyan: #00E5FF;
+            --acc-magenta: #FF00FF;
             --surface: #FFFFFF;
         }
 
         body {
             background-color: #F0F2F5;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             margin: 0; padding: 0;
             display: flex; flex-direction: column; align-items: center; gap: 50px;
         }
 
-        /* Pagina A4 Orizzontale */
         .page {
-            width: 1400px; height: 900px;
+            width: 1400px; height: 950px;
             background: var(--surface);
             padding: 60px; box-sizing: border-box;
             display: grid;
-            grid-template-columns: 350px 1fr 1fr;
+            grid-template-columns: 320px 1fr 1fr;
             grid-template-rows: auto 1fr;
-            gap: 40px;
+            gap: 45px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
         }
 
-        /* Sidebar di navigazione concettuale */
+        /* Sidebar concettuale */
         .sidebar {
             grid-row: 1 / span 2;
-            background: linear-gradient(180deg, var(--md-cyan-cont, #E0F7FA) 0%, #FFFFFF 100%);
-            border-right: 4px solid var(--accent-cyan);
-            padding: 20px;
-            border-radius: 20px;
+            background: linear-gradient(180deg, #E0F7FA 0%, #FFFFFF 100%);
+            border-right: 4px solid var(--acc-cyan);
+            padding: 30px;
+            border-radius: 25px;
+            color: var(--p-blue);
         }
 
         .main-title {
             grid-column: 2 / span 2;
-            border-bottom: 8px solid var(--accent-magenta);
-            padding-bottom: 10px;
+            border-bottom: 10px solid var(--acc-magenta);
+            padding-bottom: 15px;
         }
 
-        h1 { font-size: 52px; font-weight: 900; color: var(--printer-blue); margin: 0; letter-spacing: -2px; }
-        h2 { font-size: 26px; font-weight: 800; color: var(--printer-magenta); margin-top: 30px; text-transform: uppercase; }
+        h1 { font-size: 56px; font-weight: 900; color: var(--p-blue); margin: 0; letter-spacing: -2px; }
+        h2 { font-size: 28px; font-weight: 800; color: var(--p-magenta); margin-top: 35px; text-transform: uppercase; border-left: 6px solid var(--acc-magenta); padding-left: 15px; }
         
         .content-area {
-            font-size: 16px; line-height: 1.8; color: var(--printer-blue); text-align: justify;
+            font-size: 15.5px; line-height: 1.8; color: var(--p-blue); text-align: justify;
         }
 
-        .highlight-box {
-            background: rgba(255, 0, 255, 0.05);
-            border-left: 6px solid var(--accent-magenta);
-            padding: 20px; margin: 20px 0;
-            color: var(--printer-magenta);
-            font-weight: 600;
+        .insight-box {
+            background: rgba(255, 0, 255, 0.04);
+            border: 2px dashed var(--acc-magenta);
+            padding: 25px; margin: 25px 0;
+            color: var(--p-magenta);
+            border-radius: 15px;
         }
 
-        .data-point {
-            display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px;
+        .stats-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;
         }
 
-        .icon-wrap {
-            background: var(--accent-cyan);
-            border-radius: 12px;
-            padding: 8px;
-            display: flex; align-items: center; justify-content: center;
+        .stat-item {
+            background: #F5F5F7; padding: 15px; border-radius: 10px; font-size: 14px;
         }
 
-        svg { width: 24px; height: 24px; fill: var(--printer-blue); }
-
+        svg { width: 30px; height: 30px; fill: var(--p-blue); margin-bottom: 10px; }
         b { font-weight: 900; }
-        .page-num { position: absolute; bottom: 40px; right: 40px; font-weight: 900; font-size: 24px; color: var(--accent-cyan); }
+        .page-num { position: absolute; bottom: 40px; right: 40px; font-weight: 900; font-size: 30px; color: var(--acc-cyan); opacity: 0.5; }
     </style>
 </head>
 <body>
 
     <div class="page">
         <div class="sidebar">
-            <h2 style="margin-top:0">Timeline</h2>
-            <div class="data-point"><b>1453</b><span>Caduta di Bisanzio: la fine di un'era.</span></div>
-            <div class="data-point"><b>1480</b><span>Otranto: l'assedio all'Italia.</span></div>
-            <div class="data-point"><b>1517</b><span>Selim I: l'unione del Califfato.</span></div>
-            <div class="data-point"><b>1529</b><span>Vienna: il culmine europeo.</span></div>
+            <svg viewBox="0 0 24 24"><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/></svg>
+            <h2 style="margin-top:0; border:none; padding:0">Analisi</h2>
+            <p><b>Expansionism:</b> Politica di Maometto II basata sulla legittimità romana.</p>
+            <p><b>Theocracy:</b> Selim I unifica il potere temporale e spirituale.</p>
+            <p><b>Legalism:</b> Solimano stabilizza l'impero tramite il Kanun.</p>
             
-            <h2 style="margin-top:40px">Sultani</h2>
-            <p><b>Maometto II:</b> Il Fondatore<br>
-            <b>Selim I:</b> L'Egemone<br>
-            <b>Solimano:</b> Il Legislatore</p>
+            <h2 style="margin-top:40px; border:none; padding:0">Timeline</h2>
+            <div class="stat-item"><b>1453:</b> Costantinopoli cade sotto le bombarde turche.</div>
+            <div class="stat-item"><b>1480:</b> Occupazione di Otranto e minaccia a Roma.</div>
+            <div class="stat-item"><b>1529:</b> Primo assedio di Vienna.</div>
         </div>
 
         <div class="main-title">
-            <h1>SULTANATO: L'ARCHITETTURA DELL'EGEMONIA</h1>
+            <h1>SULTANATO: L'EGEMONIA TRIDIMENSIONALE</h1>
         </div>
 
         <div class="content-area">
-            <h2>L'Eredità Imperiale di Maometto II</h2>
-            <p>L'ascesa di Maometto II non rappresenta una semplice espansione territoriale, ma la volontà conscia di reclamare l'eredità universale di Roma. Attraverso il titolo di <b>Kayser-i Rum</b>, il Sultano operò una sintesi politica tra la tradizione turco-islamica e la maestosità imperiale bizantina. La presa di <b>Costantinopoli (1453)</b> fu resa possibile da una superiorità tecnica schiacciante: l'artiglieria pesante delle bombarde in bronzo e la logistica navale via terra. </p>
+            <h2>Maometto II: Cesare d'Oriente</h2>
+            <p>Maometto II non si percepiva come un semplice invasore, ma come l'erede legittimo dei Cesari. La sua adozione del titolo di <b>Kayser-i Rum</b> fu un atto politico rivoluzionario volto a integrare la nobiltà bizantina nel nuovo ordine ottomano. La vittoria del <b>1453</b> non fu solo merito del numero, ma di un'eccellenza tecnologica senza pari: l'uso sistematico di cannoni in bronzo giganti e una logistica che permise di trasportare navi da guerra via terra per aggirare il blocco navale del Corno d'Oro.</p>
             
-            <div class="highlight-box">
-                Il progetto italiano di Maometto II: lo sbarco a Otranto nel 1480 non fu un'incursione isolata, ma il preludio a una marcia su Roma, fermata esclusivamente dal decesso improvviso del sovrano.
+            <div class="insight-box">
+                <b>Geopolitica Italiana:</b> Lo sbarco a Otranto (1480) fu una mossa strategica coordinata per eliminare il Papato e unificare le due Roma. La morte di Maometto II nel 1481 è considerata da molti storici come l'unico evento che salvò l'Italia da una dominazione ottomana secolare.
             </div>
 
-            <p>Sotto <b>Selim I</b>, l'impero subì una mutazione spirituale. Con la conquista di Egitto e Siria, il controllo dei luoghi santi passò nelle mani ottomane, trasformando il Sultano in <b>Califfo</b>. Questo garantì una legittimazione religiosa assoluta e il dominio monopolistico sulle rotte carovaniere delle spezie.</p>
+            <p>Sotto <b>Selim I</b>, il baricentro si spostò drasticamente. Con la distruzione del sultanato mamelucco (1517), l'impero annetté l'Egitto e la Siria, ottenendo il controllo del <b>Califfato</b>. Questo non diede solo prestigio religioso, ma il dominio assoluto sui flussi commerciali delle spezie tra l'Oceano Indiano e il Mediterraneo.</p>
         </div>
 
         <div class="content-area">
-            <h2>L'Apogeo di Solimano il Magnifico</h2>
-            <p>Solimano I portò l'impero al suo zenit multidimensionale. In Europa, la vittoria di <b>Mohács (1526)</b> annientò il regno d'Ungheria, portando i Giannizzeri ad assediare <b>Vienna nel 1529</b>. Questa pressione costante costrinse le potenze cristiane a una ridefinizione della propria difesa.</p>
+            <h2>Solimano: Lo Zenit dell'Impero</h2>
+            <p>Solimano I, il <b>Magnifico</b>, spinse l'espansione fino ai suoi limiti naturali. In Europa, la battaglia di <b>Mohács (1526)</b> segnò la fine dell'indipendenza ungherese e l'inizio di una sfida diretta agli Asburgo che culminò nell'<b>Assedio di Vienna del 1529</b>.</p>
             
-            <p>Sul piano interno, Solimano fu il grande <b>Legislatore (Kanuni)</b>. La sua riforma del diritto civile e della tassazione proporzionale permise di gestire un mosaico di popoli eterogenei, garantendo stabilità economica e una macchina burocratica che non aveva eguali nelle corti europee contemporanee.</p>
+            <p>Ma la vera forza di Solimano risiedeva nel titolo di <b>Kanuni (Il Legislatore)</b>. Egli comprese che un impero così vasto non poteva sopravvivere solo con le armi. Riformò la burocrazia statale, il sistema dei catasti e creò una tassazione basata sulla produttività reale delle terre, garantendo una pace interna nota come <i>Pax Ottomana</i>.</p>
 
-            <div class="data-point" style="margin-top:30px">
-                <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/></svg></div>
-                <span><b>Realpolitik Veneziana:</b> La Pace del 1479 dimostra come gli interessi commerciali della Serenissima prevalessero spesso sul conflitto religioso.</span>
+            <div class="stats-grid">
+                <div class="stat-item"><b>Venezia (1479):</b> Accetta di pagare tributi per non perdere l'accesso ai porti del Levante.</div>
+                <div class="stat-item"><b>Mediterraneo:</b> Diventa un lago turco grazie alla protezione dei corsari barbareschi.</div>
             </div>
         </div>
         <div class="page-num">01</div>
@@ -130,45 +126,45 @@
     
 
     <div class="page">
-        <div class="sidebar" style="border-color: var(--accent-magenta); background: linear-gradient(180deg, var(--md-mag-cont, #FCE4EC) 0%, #FFFFFF 100%);">
-            <h2 style="margin-top:0; color: var(--printer-magenta);">Istituzioni</h2>
-            <div class="data-point"><b>Divan</b><span>Il centro esecutivo.</span></div>
-            <div class="data-point"><b>Harem</b><span>Il potere ombra.</span></div>
-            <div class="data-point"><b>Millet</b><span>Autonomia religiosa.</span></div>
+        <div class="sidebar" style="border-color: var(--acc-magenta); background: linear-gradient(180deg, #FCE4EC 0%, #FFFFFF 100%);">
+            <svg viewBox="0 0 24 24" style="fill: var(--p-magenta);"><path d="M12,21L10.85,22.15L12,23.29L13.15,22.15L12,21M18,12L19.15,13.15L20.29,12L19.15,10.85L18,12M12,5L13.15,3.85L12,2.71L10.85,3.85L12,5M6,12L4.85,10.85L3.71,12L4.85,13.15L6,12Z"/></svg>
+            <h2 style="margin-top:0; border:none; padding:0; color: var(--p-magenta);">Società</h2>
+            <p><b>Millet System:</b> Autonomia confessionale per le minoranze protette.</p>
+            <p><b>Devshirme:</b> La base del potere burocratico e militare d'élite.</p>
+            <p><b>Jizya:</b> Tassa di protezione per i sudditi non musulmani.</p>
             
-            <h2 style="margin-top:40px; color: var(--printer-magenta);">Elite</h2>
-            <p><b>Giannizzeri:</b> Fanteria scelta<br>
-            <b>Sipahi:</b> Cavalieri Timar<br>
-            <b>Gran Visir:</b> Primo Ministro</p>
+            <h2 style="margin-top:40px; border:none; padding:0; color: var(--p-magenta);">Burocrazia</h2>
+            <div class="stat-item"><b>Divan:</b> Consiglio di stato ad alta efficienza decisionale.</div>
+            <div class="stat-item"><b>Topkapi:</b> Centro nevralgico della meritocrazia imperiale.</div>
         </div>
 
-        <div class="main-title" style="border-color: var(--accent-cyan);">
-            <h1 style="color: var(--printer-magenta);">L'ORGANISMO IMPERIALE: STATO E SOCIETÀ</h1>
+        <div class="main-title" style="border-color: var(--acc-cyan);">
+            <h1 style="color: var(--p-magenta);">L'ORGANISMO STATALE: LOGICA E STRUTTURA</h1>
         </div>
 
         <div class="content-area">
-            <h2 style="color: var(--printer-magenta);">L'Efficienza della Meritocrazia: Topkapi</h2>
-            <p>A differenza delle aristocrazie europee legate al sangue, l'Impero Ottomano si fondava su una <b>meritocrazia centralizzata</b>. Il <b>Palazzo Topkapi</b> ospitava il <b>Divan</b>, il consiglio dove il <b>Gran Visir</b> esercitava un'autorità delegata immensa. </p>
+            <h2 style="color: var(--p-magenta);">Meritocrazia vs Aristocrazia</h2>
+            <p>Mentre l'Europa era bloccata da una nobiltà di sangue spesso inefficiente, l'Impero Ottomano costruì il suo successo sulla <b>meritocrazia centralizzata</b>. Il <b>Palazzo Topkapi</b> non era solo una reggia, ma un'accademia amministrativa. Il <b>Gran Visir</b>, spesso un ex schiavo di origini umili, deteneva un potere immenso, revocabile solo dal Sultano in caso di fallimento.</p>
             
-            <div class="highlight-box" style="border-color: var(--accent-cyan); color: var(--printer-blue);">
-                Il "Sultanato delle Donne": L'Harem non era un luogo di segregazione passiva, ma un epicentro politico dove la Valide Sultan (madre) e le mogli influenzavano nomine, diplomazia e successioni.
+            <div class="insight-box" style="border-color: var(--acc-cyan); color: var(--p-blue);">
+                <b>Il Sultanato delle Donne:</b> L'Harem fungeva da camera politica superiore. Le Valide Sultan (madri) coordinavano la diplomazia interna e le alleanze tra le fazioni di palazzo, agendo come stabilizzatrici durante le transizioni di potere più turbolente.
             </div>
 
-            <p>La forza militare era garantita dai <b>Giannizzeri</b>, reclutati tramite il sistema del <b>Devshirme</b>: giovani cristiani educati per diventare l'ossatura della burocrazia o soldati scelti. Il sistema del <b>Timar</b>, d'altra parte, assicurava che la terra rimanesse sotto controllo statale, venendo concessa in cambio di servizio militare attivo.</p>
+            <p>Il pilastro militare era costituito dai <b>Giannizzeri</b>, prelevati tramite il <b>Devshirme</b>. Questi soldati professionisti, alienati dalle loro origini familiari e fedeli solo al trono, annullarono ogni velleità feudale dei capi locali. Il sistema del <b>Timar</b> assicurava che la ricchezza terriera rimanesse legata al servizio militare attivo e non si trasformasse in proprietà ereditaria.</p>
         </div>
 
         <div class="content-area">
-            <h2 style="color: var(--printer-magenta);">Cosmopolitismo e Sistema dei Millet</h2>
-            <p>Istanbul, con oltre 700.000 abitanti, era la metropoli più vasta d'Europa e un laboratorio di convivenza. Il <b>Sistema dei Millet</b> permetteva a ebrei e cristiani di mantenere tribunali e leggi proprie sotto la guida dei propri capi religiosi (come il patriarca <b>Gennadios II</b>), a fronte del pagamento della <b>Jizya</b>.</p>
+            <h2 style="color: var(--p-magenta);">Il Mosaico Sociale e Culturale</h2>
+            <p>Istanbul, con una popolazione che superava i 700.000 abitanti, era il centro cosmopolita del mondo moderno. La gestione delle minoranze religiose tramite il <b>Sistema dei Millet</b> permetteva a cristiani ed ebrei di mantenere tribunali e leggi proprie sotto la guida dei propri capi (come il patriarca <b>Gennadios II</b>), a patto di pagare la <b>Jizya</b>.</p>
 
-            <p>Questa tolleranza pragmatica favorì lo sviluppo di una cultura ibrida. Gli ottomani importavano <b>orologi, lenti e cartografia</b> dall'Occidente, mentre esportavano modelli architettonici ispirati a <b>Santa Sofia</b> e conoscenze botaniche e mediche raffinate. Molti "rinnegati" cristiani scalarono le vette dello Stato, attratti da un sistema che premiava il talento individuale.</p>
+            <p>Questa tolleranza pragmatica favorì una sintesi culturale unica. Gli ottomani eccellevano nell'assorbire tecnologie occidentali: importavano <b>orologi, ottica e cartografia</b> d'avanguardia. Allo stesso tempo, l'architettura imperiale, ispirata a <b>Santa Sofia</b>, influenzò profondamente l'estetica mediterranea. Molti "rinnegati" europei scelsero di servire il Sultano, attratti da un sistema che offriva carriere basate esclusivamente sul talento individuale.</p>
 
-            <div class="data-point" style="margin-top:30px">
-                <div class="icon-wrap" style="background: var(--accent-magenta);"><svg viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg></div>
-                <span style="color: var(--printer-magenta);"><b>Simbiosi Culturale:</b> Il pittore veneziano Gentile Bellini alla corte di Maometto II testimonia un clima di fascinazione reciproca tra i due mondi.</span>
+            <div class="stats-grid">
+                <div class="stat-item"><b>Arte:</b> Gentile Bellini a Istanbul ritrae Maometto II, simbolo di scambio culturale.</div>
+                <div class="stat-item"><b>Urbanistica:</b> Le moschee imperiali trasformano Istanbul nel nuovo centro del mondo islamico.</div>
             </div>
         </div>
-        <div class="page-num" style="color: var(--accent-magenta);">02</div>
+        <div class="page-num" style="color: var(--acc-magenta);">02</div>
     </div>
 
     
